@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login | College Events</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-body">
+  <div class="login-wrapper">
+    <div class="login-box">
+      <img src="images/logo.png" alt="Logo" class="logo-img" />
+      <h2>College Event Management</h2>
+      <p>Login to explore events, participate, and win! 🎉</p>
+
+      <form onsubmit="handleLogin(event)">
+        <input type="email" id="loginEmail" placeholder="Enter your email" required />
+        <input type="password" id="loginPassword" placeholder="Enter your password" required />
+        <button type="submit">Login</button>
+        <p class="redirect">Don’t have an account? <a href="signup.html">Sign Up</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function handleLogin(event) {
+      event.preventDefault();
+
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+
+      if (email && password) {
+        alert("✅ Login successful! Redirecting to Dashboard...");
+        window.location.href = "dashboard.html";
+      } else {
+        alert("❌ Please fill in all fields.");
+      }
+    }
+  </script>
+</body>
+</html>

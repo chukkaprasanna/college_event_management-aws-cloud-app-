@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard | College Events</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('images/indexbackground.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .logout-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      padding: 10px 20px;
+      background-color: #f44336;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .logout-btn:hover {
+      background-color: #d32f2f;
+    }
+
+    .dashboard-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .button-group {
+      display: grid;
+      grid-template-columns: repeat(2, 150px);
+      grid-gap: 40px;
+    }
+
+    .event-btn {
+      padding: 20px;
+      font-size: 18px;
+      border: none;
+      background-color: white;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    }
+
+    .event-btn img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+    }
+
+    .event-btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <button class="logout-btn" onclick="logout()">Logout</button>
+
+  <div class="dashboard-container">
+    <div class="button-group">
+      <button class="event-btn" onclick="navigateTo('culturals.html')">
+        <img src="images/culturals1.jpg" alt="Culturals">
+      </button>
+      <button class="event-btn" onclick="navigateTo('hackathons.html')">
+        <img src="images/hackathon1.jpg" alt="Hackathons">
+      </button>
+      <button class="event-btn" onclick="navigateTo('sports.html')">
+        <img src="images/sports1.jpg" alt="Sports">
+      </button>
+      <button class="event-btn" onclick="navigateTo('workshops.html')">
+        <img src="images/workshop1.jpg" alt="Workshops">
+      </button>
+    </div>
+  </div>
+
+  <script>
+    function logout() {
+      alert("Logging out...");
+      window.location.href = "index.html";
+    }
+
+    function navigateTo(page) {
+      alert("Opening " + page);
+      window.location.href = page;
+    }
+  </script>
+
+</body>
+</html>

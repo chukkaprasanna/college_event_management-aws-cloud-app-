@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>College Event Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="left-panel">
+      <h1>College Event<br>Management System</h1>
+      <button onclick="redirectToLogin()">Login</button>
+      <button onclick="redirectToSignup()">Signup</button>
+    </div>
+
+    <div class="right-panel">
+      <div class="image-group">
+        <img src="images/culturals1.jpg" alt="Culturals" onclick="requireLogin()" />
+        <img src="images/hackathon1.jpg" alt="Hackathons" onclick="requireLogin()" />
+        <img src="images/sports1.jpg" alt="Sports" onclick="requireLogin()" />
+        <img src="images/workshop1.jpg" alt="Workshop" onclick="requireLogin()" />
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

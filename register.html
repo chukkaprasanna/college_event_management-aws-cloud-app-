@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Event Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .form-container {
+      background-color: #1f1f1f;
+      padding: 30px;
+      border: 2px solid #ff69b4;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ff69b4;
+      width: 100%;
+      max-width: 400px;
+    }
+    input, button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+    }
+    input {
+      background-color: #2e2e2e;
+      color: white;
+    }
+    button {
+      background-color: #ff69b4;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ff85c1;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Register for College Event</h2>
+    <form id="registerForm">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="email" id="email" placeholder="Your Email" required />
+      <input type="text" id="event" placeholder="Event Name (e.g. Hackathon)" required />
+      <button type="submit">Register</button>
+    </form>
+    <p id="responseMsg"></p>
+  </div>
+
+  <script>
+    const form = document.getElementById("registerForm");
+    const msg = document.getElementById("responseMsg");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const event = document.getElementById("event").value;
+
+      try {
+        const response = await fetch("YOUR_API_GATEWAY_ENDPOINT", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ name, email, event }),
+        });
+
+        const data = await response.json();
+        msg.textContent = data.message;
+        form.reset();
+      } catch (err) {
+        msg.textContent = "Registration failed. Please try again.";
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+</html>
